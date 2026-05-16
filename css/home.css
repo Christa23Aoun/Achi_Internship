@@ -2320,3 +2320,40 @@ body.home-page .main-nav {
     width: fit-content !important;
   }
 }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.home-about .about-panel {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.home-about .btn-about {
+  margin-top: 40px !important;
+  width: auto !important;
+  padding: 10px 22px !important;
+}
+/* WHY CHOOSE US – spacing + icon centering */
+
+#WhychoseUs .why-card h3 {
+  margin-bottom: 12px !important;
+  text-align: center;
+}
+
+#WhychoseUs .why-card p {
+  margin-top: 0 !important;
+}
+
+#WhychoseUs .why-card .icon {
+  display: block !important;
+  margin: 0 auto 15px auto !important;
+}

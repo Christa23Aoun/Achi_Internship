@@ -234,3 +234,36 @@
       gap: 16px;
   }
 }
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#footer {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+}
+
+.site-footer {
+    margin: 0;
+}
+
+.site-footer.footer-global {
+    margin-bottom: 0 !important;
+}
+
+.contact-footer-separator {
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.floating-btn,
+.call-btn,
+.whatsapp-btn {
+    position: fixed;
+}

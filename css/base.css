@@ -1,4 +1,3 @@
-
 :root {
     --blue-700: #214f9b;
     --blue-800: #274f9f;
@@ -23,15 +22,22 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
     background-color: #f5f7fb;
     font-family: "Open Sans", sans-serif;
     color: #1b3155;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .container {
@@ -48,7 +54,6 @@ body {
 .home-section:nth-of-type(even) {
     background-color: var(--bg-even);
 }
-
 
 .btn-primary {
     display: inline-block;
@@ -113,50 +118,7 @@ body {
     color: var(--muted);
 }
 
-
-.floating-btn {
-    position: fixed;
-    right: 24px;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    z-index: 1500;
-    text-decoration: none;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-    transition: transform 0.2s ease;
-}
-
-.floating-btn:hover {
-    transform: translateY(-2px);
-}
-
-.call-btn {
-    bottom: 110px;
-    background-color: #003c8f;
-}
-
-.whatsapp-btn {
-    bottom: 40px;
-    background-color: #25d366;
-}
-
-@media (max-width: 600px) {
-    .floating-btn {
-        right: 18px;
-        width: 48px;
-        height: 48px;
-    }
-    .call-btn {
-        bottom: 100px;
-    }
-    .whatsapp-btn {
-        bottom: 36px;
-    }
-}
+/* Floating buttons */
 .floating-btn {
     position: fixed;
     right: 25px;
@@ -166,9 +128,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #ffffff;
     text-decoration: none;
     cursor: pointer;
     z-index: 9999;
+    transition: transform 0.2s ease;
+}
+
+.floating-btn:hover {
+    transform: translateY(-2px);
 }
 
 .float-icon {
@@ -181,59 +149,29 @@ body {
     bottom: 120px;
     background: #0A3C78;
     border: 2px solid #ffffff;
-    box-shadow: 0px 3px 15px rgba(255,255,255,0.45);
+    box-shadow: 0px 3px 15px rgba(255, 255, 255, 0.45);
 }
 
 .call-btn i {
     color: #fff;
     font-size: 28px;
-    transform: rotate(90px);   
-    display: inline-block;      
+    transform: rotate(259deg);
+    display: inline-block;
     line-height: 1;
 }
 
-.call-btn i {
-    color: #fff;
-    font-size: 28px;
-    transform: rotate(259deg); 
-    display: inline-block;
-}
-
-
 .whatsapp-btn {
-    bottom: 40px;
-    background: white;
-    border-radius: 50%;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; 
-}
-
-.whatsapp-btn img {
-    object-fit: contain;
-    display: block;
-}
-
-.whatsapp-btn img {
-    width: 100%;
-    height: 100%;
-}
-
-.whatsapp-btn {
-    position: fixed;
     right: 20px;
     bottom: 40px;
     width: 70px;
     height: 70px;
     background: white;
     border-radius: 50%;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: visible;
-    
     animation: whatsappGlow 2.2s infinite ease-in-out;
 }
 
@@ -241,43 +179,68 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    display: block;
 }
-
 
 @keyframes whatsappGlow {
     0% {
         box-shadow: 0 0 0px 0px rgba(46, 213, 115, 0.0),
                     0 0 0px 0px rgba(46, 213, 115, 0.0);
     }
+
     50% {
         box-shadow: 0 0 25px 12px rgba(46, 213, 115, 0.45),
                     0 0 60px 20px rgba(46, 213, 115, 0.25);
     }
+
     100% {
         box-shadow: 0 0 0px 0px rgba(46, 213, 115, 0.0),
                     0 0 0px 0px rgba(46, 213, 115, 0.0);
     }
 }
 
-html, body {
-    overflow-x: hidden !important;   
-    overflow-y: auto !important;     
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
+@media (max-width: 600px) {
+    .floating-btn {
+        right: 18px;
+        width: 48px;
+        height: 48px;
+    }
+
+    .call-btn {
+        bottom: 100px;
+    }
+
+    .whatsapp-btn {
+        right: 18px;
+        bottom: 36px;
+        width: 58px;
+        height: 58px;
+    }
 }
 
+/* Footer scroll safety fix */
+#footer,
+.site-footer,
+.site-footer.footer-global {
+    margin-bottom: 0 !important;
+}
 
-::-webkit-scrollbar {
-    width: 0 !important;
+.contact-footer-separator {
     height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-html {
-    scrollbar-width: none !important;
-}
-
-body {
-    -ms-overflow-style: none;    
-    overflow-y: scroll;          
+/* Accessibility helper */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
